@@ -65,11 +65,21 @@ class ToxicspeechClassifier(BentoService):
         input_ids = encoded_texts['input_ids']
         attention_mask = encoded_texts['attention_mask']
         token_type_ids = encoded_texts['token_type_ids']
-        path_to_model = './models/distilbert-base-uncased_lr_2e-05_val_loss_0.06106_ep_4.pt'  
-        
+        path_to_model = './models/albert-base-v2_lr_2e-05_val_loss_0.03766_ep_2.pt'  
         device2 = torch.device('cpu')
+        state_dict = torch.load(path_to_model, map_location=device2)
+
+        #parallel 로 훈련한 모델의 module 제거
+        from collections import OrderedDict
+        new_state_dict = OrderedDict()
+        for k, v in state_dict.items():
+            name = k[7:] # remove `module.`
+            new_state_dict[name] = v
+
+        # load params
         model = self.artifacts.model
-        model.load_state_dict(torch.load(path_to_model, map_location=device2)) #이렇게 self.artifact 붙이면 되나?
+        model.load_state_dict(new_state_dict, strict=False)
+       # model.load_state_dict(ckpt,strict=False) 
         output = model(input_ids, attention_mask, token_type_ids)
         _, prediction = torch.max(output, dim=1)
 
