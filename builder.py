@@ -11,7 +11,7 @@ path_to_model = './models/albert-base-v2_lr_2e-05_val_loss_0.03766_ep_2.pt'
 bert_model = SentencePairClassifier(bert_model='albert-base-v2') #'albert-base-v2' 'distilbert-base-uncased'
 
 #load saved model
-bert_model.load_state_dict(torch.load(path_to_model, map_location=torch.device('cpu'))) #, map_location=device2
+bert_model.load_state_dict(torch.load(path_to_model, map_location=torch.device('cpu')), strict=False) #, map_location=device2
 
 #Add model to BentoML
 bento_svc = ToxicspeechClassifier()

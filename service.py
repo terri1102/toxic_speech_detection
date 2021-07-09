@@ -54,7 +54,7 @@ class ToxicspeechClassifier(BentoService):
     def predict(self, parsed_json):
         parent = parsed_json['parent']
         text = parsed_json['text']
-        tokenizer = AutoTokenizer.from_pretrained(parsed_json['model_name'])
+        tokenizer = AutoTokenizer.from_pretrained('albert-base-v2')
         encoded_texts = tokenizer.encode_plus(parent, text, max_length=500,
                                      add_special_tokens=True,
                                      return_token_type_ids=True,
@@ -65,23 +65,27 @@ class ToxicspeechClassifier(BentoService):
         input_ids = encoded_texts['input_ids']
         attention_mask = encoded_texts['attention_mask']
         token_type_ids = encoded_texts['token_type_ids']
-        path_to_model = './models/albert-base-v2_lr_2e-05_val_loss_0.03766_ep_2.pt'  
-        device2 = torch.device('cpu')
-        state_dict = torch.load(path_to_model, map_location=device2)
+        
+        #임시로 지운 것
+        #path_to_model = './models/albert-base-v2_lr_2e-05_val_loss_0.03766_ep_2.pt'  
+        #device2 = torch.device('cpu')
+        #state_dict = torch.load(path_to_model, map_location=device2)
 
         #parallel 로 훈련한 모델의 module 제거
-        from collections import OrderedDict
-        new_state_dict = OrderedDict()
-        for k, v in state_dict.items():
-            name = k[7:] # remove `module.`
-            new_state_dict[name] = v
+      #  from collections import OrderedDict
+      # new_state_dict = OrderedDict()
+      #  for k, v in state_dict.items():
+      #      name = k[7:] # remove `module.`
+      #      new_state_dict[name] = v
 
         # load params
-        model = self.artifacts.model
-        model.load_state_dict(new_state_dict, strict=False)
-       # model.load_state_dict(ckpt,strict=False) 
-        output = model(input_ids, attention_mask, token_type_ids)
-        _, prediction = torch.max(output, dim=1)
+        #임시로 지운 것 2
+      #  model = self.artifacts.model
+       # model.load_state_dict(state_dict, strict=False)
+        
+      #  output = model(input_ids, attention_mask, token_type_ids)
+        model_output = self.artifacts.model(input_ids, attention_mask, token_type_ids)
+        _, prediction = torch.max(model_output, dim=1)
 
         class_name = ["Non-toxic","Toxic"]
         

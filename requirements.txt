@@ -68,7 +68,7 @@ torch==1.9.0+cu102
 torchaudio==0.9.0
 torchvision==0.10.0+cu102
 tqdm==4.61.2
-transformers==4.8.2
+transformers==3.0.0
 typing-extensions==3.10.0.0
 urllib3==1.25.11
 websocket-client==1.1.0
