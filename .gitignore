@@ -1,8 +1,8 @@
 # ignore dataset
-/data/final_data.csv
-/data_loader/test_loader.pt
-/data_loader/train_loader.pt
-/data_loader/val_loader.pt
+data/final_data.csv
+data_loader/
+#/data_loader/train_loader.pt
+#/data_loader/val_loader.pt
 
 # ignore bentoml
 /builder.py
