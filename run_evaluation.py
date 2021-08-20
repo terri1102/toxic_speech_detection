@@ -2,29 +2,23 @@ import torch
 import random
 import numpy as np
 import os
-def set_seed(seed):
-    """ Set all seeds to make results reproducible """
-    torch.manual_seed(seed)
-    torch.cuda.manual_seed_all(seed)
-    torch.backends.cudnn.deterministic = True
-    torch.backends.cudnn.benchmark = False
-    np.random.seed(seed)
-    random.seed(seed)
-    os.environ['PYTHONHASHSEED'] = str(seed)
-    
+import pandas as pd
+from sklearn.metrics import classification_report
+from build_dataset import main.test
+#import build_dataset.test
 
-def evaluate_loss(net, device, criterion, dataloader):
-    net.eval()
 
-    mean_loss = 0
-    count = 0
+path_to_output_file = './results/output.txt'  # path to the file with prediction probabilities
 
-    with torch.no_grad():
-        for it, (seq, attn_masks, token_type_ids, labels) in enumerate(tqdm(dataloader)):
-            seq, attn_masks, token_type_ids, labels = \
-                seq.to(device), attn_masks.to(device), token_type_ids.to(device), labels.to(device)
-            logits = net(seq, attn_masks, token_type_ids)
-            mean_loss += criterion(logits.squeeze(-1), labels.float()).item()
-            count += 1
 
-    return mean_loss / count
+#현재 문제: build_dataset에서 만든 test 변수(데이터프레임)를 여기로 불러 올 수 없음
+#1. test를 csv로 저장하기
+#2. 모듈 간에 통용되는 변수 만들기...?
+
+labels_test = test['label']  # true labels
+
+probs_test = pd.read_csv(path_to_output_file, header=None)[0]  # prediction probabilities
+threshold = 0.5   # you can adjust this threshold for your own dataset
+preds_test=(probs_test>=threshold).astype('uint8') # predicted labels using the above fixed threshold
+
+print(classification_report(labels_test, preds_test))

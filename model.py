@@ -1,10 +1,13 @@
 from transformers import AutoModel
 import torch.nn as nn
 from torch.cuda.amp import autocast
+import torch
+import numpy as np
 
 class SentencePairClassifier(nn.Module):
-    """SentnecePairClassifier takes two sentences seperately and concatenates them with special tokens. 
-    Then it feeds concateneated sentence to a chosen Bert model and a classification layer."""
+    """
+    SentencePairClassifier takes dataloader object as an input and it feeds that to a chosen Bert model and a classification layer.
+    """
     
     def __init__(self, bert_model='albert-base-v2', freeze_bert=False):
         super(SentencePairClassifier, self).__init__()
@@ -47,3 +50,8 @@ class SentencePairClassifier(nn.Module):
         logits = self.cls_layer(self.dropout(pooler_output))
 
         return logits
+
+
+
+
+
