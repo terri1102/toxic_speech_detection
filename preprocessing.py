@@ -1,4 +1,5 @@
 import re
+import os
 import argparse
 
 class preprocess():
@@ -63,7 +64,7 @@ class preprocess():
         return data
 
 def main():
-    data = 
+    data_path = os.path.join('./data', )
     preprocessed_data = preprocess()
 
 if __name__ == '__main__':
