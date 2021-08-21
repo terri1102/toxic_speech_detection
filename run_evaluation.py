@@ -13,6 +13,8 @@ path_to_output_file = './results/output.txt'  # path to the file with prediction
 
 #현재 문제: build_dataset에서 만든 test 변수(데이터프레임)를 여기로 불러 올 수 없음
 #1. test를 csv로 저장하기
+
+test = pd.read_csv('./temp/test_df.csv')
 #2. 모듈 간에 통용되는 변수 만들기...?
 
 labels_test = test['label']  # true labels

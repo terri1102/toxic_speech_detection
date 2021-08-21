@@ -82,7 +82,7 @@ def main():
     args = parser.parse_args()
 
     data = os.path.join(args.path_to_data,'final_data.csv') #이걸 와일드 카드로 바꾸고 싶은데 안 되네. *.csv 이런 식으로
-    print(data)
+    
     data = pd.read_csv(data)
     data = data.fillna("")
     data = data[['index','parent','text','label']]
@@ -91,6 +91,11 @@ def main():
    # val, test = train_test_split(val, test_size=0.5, random_state=1, stratify=val['label'])
   
     train, val, test = split_dataset(data)
+
+    #test 파일 임시 저장
+    if not os.path.exists('temp'):
+        os.mkdir('temp')
+    test.to_csv('./temp/test_df.csv',index=False)
     
     train_loader = build_dataloader(data=train, maxlen=args.max_seq_length, batch_size=args.batch_size, bert_model=args.bert_model)
     val_loader = build_dataloader(data=val, maxlen=args.max_seq_length, batch_size=args.batch_size, bert_model=args.bert_model)
