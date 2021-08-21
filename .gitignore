@@ -1,5 +1,5 @@
 # ignore dataset
-data/final_data.csv
+#data/final_data.csv
 data_loader/
 #/data_loader/train_loader.pt
 #/data_loader/val_loader.pt

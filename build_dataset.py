@@ -73,7 +73,7 @@ def build_dataloader(data, maxlen, batch_size, with_labels=True, bert_model='alb
 def main():
     parser = argparse.ArgumentParser(description="run this to build a dataloader for fine-tuning")
     parser.add_argument("--path_to_data", default='./data')
-   # parser.add_argument("--output-dir", default='./data_loader',
+   #parser.add_argument("--output-dir", default='./data_loader',
    #                     help="Where to write out the dataloader")
     parser.add_argument("--max_seq_length", default=512, type=int,
                         help="Number of tokens per example")
@@ -81,7 +81,8 @@ def main():
     parser.add_argument("--bert_model", default='albert-base-v2')
     args = parser.parse_args()
 
-    data = os.path.join(args.path_to_data, 'final_data.csv')
+    data = os.path.join(args.path_to_data,'final_data.csv') #이걸 와일드 카드로 바꾸고 싶은데 안 되네. *.csv 이런 식으로
+    print(data)
     data = pd.read_csv(data)
     data = data.fillna("")
     data = data[['index','parent','text','label']]
@@ -94,6 +95,9 @@ def main():
     train_loader = build_dataloader(data=train, maxlen=args.max_seq_length, batch_size=args.batch_size, bert_model=args.bert_model)
     val_loader = build_dataloader(data=val, maxlen=args.max_seq_length, batch_size=args.batch_size, bert_model=args.bert_model)
     test_loader = build_dataloader(data=test, maxlen=args.max_seq_length, batch_size=args.batch_size, bert_model=args.bert_model)
+
+    if not os.path.exists('data_loader'):
+        os.makedirs('data_loader')
 
     torch.save(train_loader, './data_loader/train_loader.pt')
     torch.save(val_loader, './data_loader/val_loader.pt')
