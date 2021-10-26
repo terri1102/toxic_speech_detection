@@ -1,4 +1,26 @@
-# 😠 Toxic Speech Detection
+## Table of Contents
+
+- [😠 Toxic Speech Detection](https://github.com/terri1102/toxic_speech_detection/edit/master/README.md#23)
+  * [🅱️ 프로젝트 배경](https://github.com/terri1102/toxic_speech_detection/edit/master/README.md#30)
+  * [✅ 프로젝트 목표](https://github.com/terri1102/toxic_speech_detection/edit/master/README.md#36)
+  * [📁 데이터셋 선정](https://github.com/terri1102/toxic_speech_detection/edit/master/README.md#48)
+  * [🧹 데이터 전처리](https://github.com/terri1102/toxic_speech_detection/edit/master/README.md#54)
+  * [🤖 모델 선정](https://github.com/terri1102/toxic_speech_detection/edit/master/README.md#61)
+  * [🍱 BentoML로 로컬에서 서빙](https://github.com/terri1102/toxic_speech_detection/edit/master/README.md#67)
+  * [😠 목표 달성도](https://github.com/terri1102/toxic_speech_detection/edit/master/README.md#75)
+  * [추후 과제 및 한계](https://github.com/terri1102/toxic_speech_detection/edit/master/README.md#86)
+- [Quick Start](#quick-start)
+  * [Build datasets](#build-datasets)
+  * [Finetune a Bert model](#finetune-a-bert-model)
+  * [Make a prediction](#make-a-prediction)
+  * [Evaluate your model](#evaluate-your-model)
+
+
+---
+
+
+
+# 👿 Toxic Speech Detection
 <img src="https://github.com/terri1102/terri1102.github.io/blob/master/assets/images/no-hate-2019922_1920.jpg?raw=true" alt="no_hate" style="zoom:67%;" />
 
 챗봇에서 사용할 수 있는 앞 문장을 고려한 혐오발언 검출 모델입니다. 가벼운 모델을 사용해서 CPU inference time을 줄이고자 했으며, bentoML를 통해서 로컬에서 서빙이 가능합니다.
