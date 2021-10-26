@@ -1,13 +1,13 @@
 ## Table of Contents
 
-- [😠 Toxic Speech Detection](https://github.com/terri1102/toxic_speech_detection/edit/master/README.md#23)
+- [👿 Toxic Speech Detection](https://github.com/terri1102/toxic_speech_detection/edit/master/README.md#23)
   * [🅱️ 프로젝트 배경](https://github.com/terri1102/toxic_speech_detection/edit/master/README.md#30)
   * [✅ 프로젝트 목표](https://github.com/terri1102/toxic_speech_detection/edit/master/README.md#36)
   * [📁 데이터셋 선정](https://github.com/terri1102/toxic_speech_detection/edit/master/README.md#48)
   * [🧹 데이터 전처리](https://github.com/terri1102/toxic_speech_detection/edit/master/README.md#54)
   * [🤖 모델 선정](https://github.com/terri1102/toxic_speech_detection/edit/master/README.md#61)
   * [🍱 BentoML로 로컬에서 서빙](https://github.com/terri1102/toxic_speech_detection/edit/master/README.md#67)
-  * [😠 목표 달성도](https://github.com/terri1102/toxic_speech_detection/edit/master/README.md#75)
+  * [🎯 목표 달성도](https://github.com/terri1102/toxic_speech_detection/edit/master/README.md#75)
   * [추후 과제 및 한계](https://github.com/terri1102/toxic_speech_detection/edit/master/README.md#86)
 - [Quick Start](#quick-start)
   * [Build datasets](#build-datasets)
@@ -72,7 +72,7 @@ BentoML을 이용하여 Swagger UI 형태로 로컬 서빙하였으며, json 형
 
 
 
-## 😠 목표 달성도
+## 🎯 목표 달성도
 
 - [x]  클래스 비율이 비슷한 데이터셋 구축
 - [x]  Sentence pair를 input으로 하고 문맥을 고려할 수 있는 모델
