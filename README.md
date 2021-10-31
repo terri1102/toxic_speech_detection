@@ -96,7 +96,7 @@ BentoML을 이용하여 Swagger UI 형태로 로컬 서빙하였으며, json 형
 ## Build datasets
 전처리와 커스텀 데이터셋 구성 및 pytorch data_loader 형태로 저장하는 모듈입니다. `$data` 디렉토리 안에 csv 파일을 넣고 훈련시킬 수 있습니다.
 ```bash
-$ python build_dataset.py 
+python build_dataset.py 
 ```
 
 `--path_to_data` : data 파일이 들어 있는 디렉토리입니다. 기본은 `$data`로 설정되어 있습니다.
@@ -112,7 +112,7 @@ $ python build_dataset.py
 ## Finetune a Bert model
 
 ```
-$ python run_training.py
+python run_training.py
 ```
 
 `--bert_model` : fine-tuning 과정에서 사용할 BERT 모델을 설정합니다. 기본은 albert-base-v2로 되어있으며, 현재 패키지에서 사용가능한 모델은 'albert-base-v2'와 'distilbert-base' 모델입니다. 
@@ -131,7 +131,7 @@ $ python run_training.py
 
 `build_dataset.py`에서 만든 test data_loader를 이용해서 예측을 진행합니다. 
 ```bash
-$ python run_prediction.py
+python run_prediction.py
 ```
 
 
@@ -140,6 +140,6 @@ $ python run_prediction.py
 
 `build_dataset.py`를 통해 split한 test 파일과 예측 결과를 f1 score와 accuracy로 평가합니다.
 ```bash
-$ python run_evaluation.py
+python run_evaluation.py
 ```
 
