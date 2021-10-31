@@ -1,8 +1,8 @@
 ## Table of Contents
 
 - [👿 Toxic Speech Detection](#-toxic-speech-detection)
-  * [🅱️ 프로젝트 배경](#user-content-프로젝트--배경)
-  * [✅ 프로젝트 목표](#user-content-프로젝트--목표)
+  * [🅱️ 프로젝트 배경](#user-content--프로젝트-배경)
+  * [✅ 프로젝트 목표](#user-content--프로젝트-목표)
   * [📁 데이터셋 선정](https://github.com/terri1102/toxic_speech_detection/tree/master/README.md#48)
   * [🧹 데이터 전처리](https://github.com/terri1102/toxic_speech_detection/tree/master/README.md#54)
   * [🤖 모델 선정](https://github.com/terri1102/toxic_speech_detection/tree/master/README.md#61)
