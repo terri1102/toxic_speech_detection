@@ -1,6 +1,6 @@
 ## Table of Contents
 
-- [👿 Toxic Speech Detection](#👿-Toxic-Speech-Detection)
+- [👿 Toxic Speech Detection](#-toxic-speech-detection)
   * [🅱️ 프로젝트 배경](https://github.com/terri1102/toxic_speech_detection/tree/master/README.md#30)
   * [✅ 프로젝트 목표](https://github.com/terri1102/toxic_speech_detection/tree/master/README.md#36)
   * [📁 데이터셋 선정](https://github.com/terri1102/toxic_speech_detection/tree/master/README.md#48)
